@@ -14,6 +14,7 @@
   var snake = [{x: SIZE / 2, y: SIZE / 2}]; // Snake starts in the center
   var candy = null;
   var end = false;
+  var timertime = 0;
 
   function randomOffset() {
     return Math.floor(Math.random() * SIZE / GRID_SIZE) * GRID_SIZE;
@@ -24,6 +25,7 @@
   }
 
   function tick() {
+    timertime++;
     var newHead = {x: snake[0].x, y: snake[0].y};
 
     // Only change directon if the new direction is a different axis
@@ -40,9 +42,9 @@
     // Did we eat a candy? Detect if our head is in the same cell as the candy
     if (candy && candy.x === newHead.x && candy.y === newHead.y) {
       candy = null;
-      snakeLength += 10;
-      points++;
-      document.getElementById("score").innerHTML = points;
+      snakeLength += 7;
+      points += 10;
+      document.getElementById("score").innerHTML = "Score: " + points;
     }
 
     context.fillStyle = '#002b36';
@@ -60,6 +62,7 @@
     // Detect wall collisions
     if (newHead.x < 0 || newHead.x >= SIZE || newHead.y < 0 || newHead.y >= SIZE) {
       end = true;
+
     }
 
     context.fillStyle = 'green';
@@ -80,10 +83,12 @@
 
     context.fillStyle = 'red';
     context.fillRect(candy.x, candy.y, GRID_SIZE, GRID_SIZE); // Paint the candy
+    document.getElementById("snakelengthtext").innerHTML = "Current Snake Length: " + snakeLength;
+    document.getElementById("timer").innerHTML = "Current Time: " + timertime;
   }
 
   window.onload = function() {
-    setInterval(tick, 50); // Kick off the game loop!
+    setInterval(tick, 40); // Kick off the game loop!
     window.onkeydown = function(e) {
       newDirection = {37: -1, 38: -2, 39: 1, 40: 2}[e.keyCode] || newDirection;
     };

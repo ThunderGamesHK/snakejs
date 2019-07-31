@@ -1,12 +1,12 @@
 #c{
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
   #score {
     text-align: center;
-    font-size: 140px;
+    font-size: 60px;
     font-family: 'Antic Slab', serif;
     color: white;
 }
@@ -17,9 +17,22 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 #creditp{
     text-align: center;
     font-family: 'Antic Slab', serif;
-    font-size: 30px;
+    font-size: 50px;
+    color: white;
 }
 #credita{
     text-decoration: none;
-    color: black;
+    color: white;
+}
+#snakelengthtext{
+    text-align: center;
+    font-family: 'Antic Slab', serif;
+    font-size: 30px;
+    color: white;
+}
+#timer{
+    text-align: center;
+    font-family: 'Antic Slab', serif;
+    font-size: 30px;
+    color: white;
 }
