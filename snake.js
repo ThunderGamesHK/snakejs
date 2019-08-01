@@ -1,7 +1,7 @@
 
  (function() {
   var points = 0; // Starting Points
-  var SIZE = 500; // Size of the play-field in pixels
+  var SIZE = 650; // Size of the play-field in pixels
   var GRID_SIZE = SIZE / 50;
   var c = document.getElementById('c');
   c.height = c.width = SIZE * 2; // 2x our resolution so retina screens look good
@@ -10,7 +10,7 @@
   context.scale(2, 2); // Scale our canvas for retina screens
 
   var direction = newDirection = 1; // -2: up, 2: down, -1: left, 1: right
-  var snakeLength = 5;
+  var snakeLength = 4;
   var snake = [{x: SIZE / 2, y: SIZE / 2}]; // Snake starts in the center
   var candy = null;
   var end = false;
@@ -42,12 +42,12 @@
     // Did we eat a candy? Detect if our head is in the same cell as the candy
     if (candy && candy.x === newHead.x && candy.y === newHead.y) {
       candy = null;
-      snakeLength += 7;
+      snakeLength += 4;
       points += 10;
       document.getElementById("score").innerHTML = "Score: " + points;
     }
 
-    context.fillStyle = '#002b36';
+    context.fillStyle = "#000000";
     context.fillRect(0, 0, SIZE, SIZE); // Reset the play area
     if (end) {
       context.fillStyle = '#eee8d5';
